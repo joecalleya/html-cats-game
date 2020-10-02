@@ -1,0 +1,48 @@
+* {
+  background-color: mediumaquamarine;
+}
+
+section.grid {
+  margin: auto;
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: auto;
+  z-index: -1;
+}
+
+.grid__tile {
+  grid-gap: 0;
+  align-content: stretch;
+  justify-content: stretch;
+  background-color: black;
+  width: 300px;
+  height: 300px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+  /* Remove this if you don't want the 3D effect */
+  z-index: 1;
+}
+
+.grid__image {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  transform: rotateY(-180deg);
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  /* Safari */
+  backface-visibility: hidden;
+}
+
+.rotate {
+  transform: rotateY(-180deg);
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.match {
+  transform: rotateY(-180deg);
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
