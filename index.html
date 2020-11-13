@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,11 +7,25 @@
     <link rel="stylesheet" href="styles.css">
 
 </head>
-    <body>
-        <h1>Cat Memory Game</h1>
-        <section class="grid" id="grid">
 
-        </section>
-        <script src="./main.js" type="module"></script>
-    </body>
+<body>
+    <h1>Cat Memory Game</h1>
+    <!-- Divs are inserted here by JS -->
+    <section class="grid" id="grid">
+    </section>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Welcome: </p>
+            <p>Can you help Princess Chi Chi, the Cat, find her friends</p> 
+            <p>Match 2 HTTP Cat Memes to Win...</p>
+            <p>Click Anywhere to Start......</p>
+        </div>
+    </div>
+
+    <script src="./main.js" type="module"></script>
+</body>
+
 </html>
