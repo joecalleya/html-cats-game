@@ -45,10 +45,16 @@ section.grid {
   transform-style: preserve-3d;
 }
 
-/* The Modal (background) */
-.modal {
+/* defaut modal display*/
+#endModal {
+  display: none;
+}
+
+#startModal {
   display: block;
-  /* unhidden by default */
+}
+
+.modal {
   position: fixed;
   /* Stay in place */
   z-index: 1;

@@ -82,9 +82,16 @@ section.grid {
 
   }
 
-  /* The Modal (background) */
-.modal {
-    display: block; /* unhidden by default */
+  /* defaut modal display*/
+  #endModal {
+    display: none;
+  }
+
+  #startModal {
+    display: block;
+  }
+
+  .modal {
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
