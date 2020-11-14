@@ -1,40 +1,4 @@
-// @charset "UTF-8";
-
-// // 1. Configuration and helpers
-// @import
-//   'abstracts/variables',
-//   'abstracts/functions',
-//   'abstracts/mixins';
-
-// // 2. Vendors
-// @import
-//   'vendors/normalize';
-
-// // 3. Base stuff
-// @import
-//   'base/base',
-//   'base/fonts',
-//   'base/typography',
-//   'base/helpers';
-
-// // 4. Layout-related sections
-// @import
-//   'layout/header',
-//   'layout/footer';
-
-// // 5. Components
-// @import
-//   'components/button';
-
-// // 6. Page-specific styles
-// @import
-//   'pages/home';
-
-// // 7. Themes
-// @import
-//   'themes/default';
-
-*{
+body{
   background-color: mediumaquamarine;
 }
 section.grid {
@@ -99,16 +63,15 @@ section.grid {
     width: 100%; /* Full width */
     height: 200%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
 
   /* Modal Content/Box */
   .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
+    font-size: 28px;
     width: 80%; /* Could be more or less, depending on screen size */
   }
 

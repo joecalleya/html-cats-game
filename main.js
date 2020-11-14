@@ -8,6 +8,8 @@ let clickedLocationArray = [];
 let clickedImageArray = [];
 //matching item count
 let matchCount = 0;
+// dificulty of the board
+let difficultyNumber = 6
 
 // query for the grid items
 const gridSelect = document.querySelector(".grid");
@@ -18,10 +20,8 @@ gridSelect.addEventListener('click', (event) => {
 // Get the modal clciks
 var startmodal = document.getElementById("startModal");
 var endmodal = document.getElementById("endModal");
-
 // Get the <span> element that closes the modal
 var startSpan = document.getElementsByClassName("close")[0];
-
 // When the user clicks on <span> (x), close the modal
 startSpan.onclick = function () {
     startmodal.style.display = "none";
@@ -33,25 +33,23 @@ window.onclick = function (event) {
         startmodal.style.display = "none";
     }
 }
-// modalEventListenerSetup("endModal","none")
-
 
 // FUNCTIONS
-function refreshPage(){
-    const refresh = document.querySelector(".refresh");
-    refresh.addEventListener('click', (event) => {
-        location.reload;
-    });
-} 
-const checkIfCompleted = ()  => {
+
+const checkIfCompleted = () => {
     // check if matches are same number as length of input array and threow modal if done
-    if ((htmlCatsItems.length/2) == matchCount || matchCount ==1) 
-    {
+    if (difficultyNumber == matchCount) {
         // activate modal
         console.log(matchCount)
         endmodal.style.display = "block";
+        //add envent lister to button
+        const restartGameEvent = document.getElementById("restartGame");
+        restartGameEvent.addEventListener('click', (event) => {
+            
+            location.reload();
+        });
     }
-    };
+};
 // setup rotate function - adds rotate to class if not already on
 
 const rotateGrid = () => {
@@ -77,7 +75,7 @@ const checkMatch = () => {
     // if match
     if (clickedImageArray[0] == clickedImageArray[1]) {
         isLastClickMatching = true;
-        matchCount ++;
+        matchCount++;
         clickedLocationArray.forEach(clickMatch => {
             clickMatch.className = clickMatch.className.replace(/(?:^|\s)rotate(?!\S)/g, ' match');
         });
@@ -87,7 +85,6 @@ const checkMatch = () => {
 }
 
 const click_monitor = () => {
-
     // Get clicked image URL
     let imageClickedURL = event.target.children[0].src;
     clickedImageArray.push(imageClickedURL);
@@ -116,16 +113,27 @@ const click_monitor = () => {
 
     }
 }
+
+// create the grid box based on the difficulty - difficultyNumber
+
 const createHTML = (iterator, pictureNumber) => {
     gridSelect.innerHTML += `<div class="grid__tile" id="grid__tile__${iterator}">
                             <img class="grid__image" src="https://http.cat/${pictureNumber}" alt="${pictureNumber}">
                             </div>  `
 };
-// create array of picture elements, each one must be on twice
-let htmlCatsItems = [100, 100, 101, 101, 200, 200, 201, 201, 202, 202, 204, 204]
-// Randomly sort it
+// create array of picture elements, to make it harder
+let htmlCatsAllItems = [100, 101, 102, 200, 201, 202, 204, 206, 207, 300, 301, 302, 303, 304, 305, 307, 400, 401, 402, 403, 404, 405, 406, 408, 409,
+    410, 411, 412, 413, 414, 415, 416, 417, 418, 420, 421, 422, 423, 424, 425, 426, 429, 431, 444, 450, 451, 499, 500, 501, 502,
+    503, 504, 506, 507, 508, 509, 510, 511, 599
+]
+// Randomly sort the full list
+htmlCatsAllItems.sort(() => Math.random() - 0.5);
+//Pick numbr from the array  double it to get both matches.
+let htmlCatsItems = htmlCatsAllItems.splice(0, difficultyNumber);
+htmlCatsItems = htmlCatsItems.concat(htmlCatsItems)
+// sort again to ranomise the booard
 htmlCatsItems.sort(() => Math.random() - 0.5);
 for (let index = 0; index < htmlCatsItems.length; index++) {
-    // render the main grid
+    // render the main grid bsed on the input array.
     createHTML(index, htmlCatsItems[index]);
 }
