@@ -102,7 +102,6 @@ const click_monitor = () => {
         // second click - check match
         if (clickedLocationArray.length >= 2) {
             checkMatch()
-            console.log(matchCount)
             checkIfCompleted()
             clickedImageArray = [];
             if (clickedLocationArray.length > 2 && isLastClickMatching == false) {
