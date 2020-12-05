@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
 body {
-  background-color: mediumaquamarine;
+  background-color: #7e5ded;
+  font-family: "Do Hyeon", sans-serif;
 }
 
 section.grid {
@@ -10,45 +12,59 @@ section.grid {
   width: 100%;
   z-index: -1;
 }
+section.grid h1 {
+  width: 80%;
+  font-size: 400%;
+  color: #eae5fc;
+  text-align: center;
+  margin: 20px;
+  letter-spacing: 5px;
+  border: 5px solid #e3c74f;
+  border-radius: 20px;
+}
 
 .grid__tile {
-  margin: 1%;
-  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 20px;
   width: 250px;
   height: 250px;
-  border: 1px solid #f1f1f1;
   perspective: 1000px;
   /* Remove this if you don't want the 3D effect */
-  z-index: 1;
+  border-radius: 20px;
+  box-shadow: 20px;
+  background-color: #eae5fc;
+  border: 5px solid #e3c74f;
 }
-
-@media (max-width: 600px) {
-  .grid__tile {
-    width: 100px;
-    height: 100px;
-  }
-}
-.grid__image {
+.grid__tile .grid__back__image {
   width: 100%;
   height: 100%;
-  z-index: 2;
   transform: rotateY(-180deg);
   position: absolute;
   -webkit-backface-visibility: hidden;
   /* Safari */
   backface-visibility: hidden;
+  border-radius: 20px;
+  padding: 5px;
 }
 
 .rotate {
   transform: rotateY(-180deg);
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  border: 5px solid #fc5e79;
+  padding: 5px;
 }
 
 .match {
   transform: rotateY(-180deg);
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  border: 5px solid #55c2b3;
+  padding: 5px;
 }
 
 /* defaut modal display*/
@@ -79,12 +95,15 @@ section.grid {
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #7e5ded;
+  color: #eae5fc;
   margin: 15% auto;
   padding: 20px;
   font-size: 28px;
   width: 80%;
   /* Could be more or less, depending on screen size */
+  border-radius: 20px;
+  border: 5px solid #e3c74f;
 }
 
 /* The Close Button */
@@ -100,4 +119,11 @@ section.grid {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .grid__tile {
+    width: 100px;
+    height: 100px;
+  }
 }

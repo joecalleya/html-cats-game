@@ -1,6 +1,5 @@
 //used to flip tiles
 let flipTarget = '';
-let unflip = '';
 let isLastClickMatching = false;
 //click array with click history
 let clickedLocationArray = [];
@@ -8,41 +7,44 @@ let clickedLocationArray = [];
 let clickedImageArray = [];
 //matching item count
 let matchCount = 0;
-// dificulty of the board
+// difficulty of the board
 let difficultyNumber = 6
+
 
 // query for the grid items
 const gridSelect = document.querySelector(".grid");
-// MODAL beginn and end listener
+
+
+// MODAL begin and end listener
 gridSelect.addEventListener('click', (event) => {
     click_monitor();
 });
-// Get the modal clciks
-var startmodal = document.getElementById("startModal");
-var endmodal = document.getElementById("endModal");
+// Get the modal click's
+var startModal = document.getElementById("startModal");
+var endModal = document.getElementById("endModal");
 // Get the <span> element that closes the modal
 var startSpan = document.getElementsByClassName("close")[0];
 // When the user clicks on <span> (x), close the modal
 startSpan.onclick = function () {
-    startmodal.style.display = "none";
+    startModal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
-    if (event.target == startmodal) {
-        startmodal.style.display = "none";
+    if (event.target == startModal) {
+        startModal.style.display = "none";
     }
 }
 
 // FUNCTIONS
 
 const checkIfCompleted = () => {
-    // check if matches are same number as length of input array and threow modal if done
+    // check if matches are same number as length of input array and throw modal if done
     if (difficultyNumber == matchCount) {
         // activate modal
         console.log(matchCount)
-        endmodal.style.display = "block";
-        //add envent lister to button
+        endModal.style.display = "block";
+        //add event lister to button
         const restartGameEvent = document.getElementById("restartGame");
         restartGameEvent.addEventListener('click', (event) => {
             
@@ -68,7 +70,7 @@ const resetGrid = () => {
     });
 
 }
-// function to chekc if there is a match amd add to class?>
+// function to check if there is a match amd add to class?>
 
 const checkMatch = () => {
 
@@ -88,7 +90,7 @@ const click_monitor = () => {
     // Get clicked image URL
     let imageClickedURL = event.target.children[0].src;
     clickedImageArray.push(imageClickedURL);
-    // first thing is rotate grid and update cdlasses
+    // first thing is rotate grid and update classes
     // Get clicked ID and create click object
     let idClickResult = event.target.id;
     flipTarget = document.querySelector(`#${idClickResult}`);
@@ -117,7 +119,7 @@ const click_monitor = () => {
 
 const createHTML = (iterator, pictureNumber) => {
     gridSelect.innerHTML += `<div class="grid__tile" id="grid__tile__${iterator}">
-                            <img class="grid__image" src="https://http.cat/${pictureNumber}" alt="${pictureNumber}">
+                            <img class="grid__back__image" src="https://http.cat/${pictureNumber}" alt="${pictureNumber}">
                             </div>  `
 };
 // create array of picture elements, to make it harder
@@ -127,12 +129,12 @@ let htmlCatsAllItems = [100, 101, 102, 200, 201, 202, 204, 206, 207, 300, 301, 3
 ]
 // Randomly sort the full list
 htmlCatsAllItems.sort(() => Math.random() - 0.5);
-//Pick numbr from the array  double it to get both matches.
+//Pick number from the array  double it to get both matches.
 let htmlCatsItems = htmlCatsAllItems.splice(0, difficultyNumber);
 htmlCatsItems = htmlCatsItems.concat(htmlCatsItems)
-// sort again to ranomise the booard
+// sort again to randomize the board
 htmlCatsItems.sort(() => Math.random() - 0.5);
 for (let index = 0; index < htmlCatsItems.length; index++) {
-    // render the main grid bsed on the input array.
+    // render the main grid based on the input array.
     createHTML(index, htmlCatsItems[index]);
 }
