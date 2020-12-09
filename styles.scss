@@ -12,8 +12,6 @@ $block-size: 250px;
 body{
   background-color: $background-colour;
   font-family: $font;
-
-
 }
 
 .grid__title{
@@ -23,7 +21,6 @@ body{
   align-content: center;
 
   h1{
-    width: 100%;
     font-size: 200%;
     color: $white;
     text-align: center;
@@ -45,7 +42,6 @@ section.grid {
   z-index: -1;
 
 }
-
 .grid__tile {
     display: flex;
     flex-direction: column;
@@ -67,10 +63,10 @@ section.grid {
     i {
       text-align: center;
       color: $white;
-      font-size: 1000%;
+      font-size: 200px; 
       height: $block-size;
       width: $block-size;
-      margin-top:15%;
+      margin-top:25px;
       border-radius:20px;
 
 
@@ -174,6 +170,13 @@ section.grid {
     {
         width: 100px;
         height: 100px; 
+
+    i {
+      font-size: 70px;
+      width: 100px;
+      height: 100px; 
     }
+    }
+
   }
   

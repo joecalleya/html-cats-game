@@ -10,7 +10,6 @@ body {
   align-content: center;
 }
 .grid__title h1 {
-  width: 100%;
   font-size: 200%;
   color: #eae5fc;
   text-align: center;
@@ -52,10 +51,10 @@ section.grid {
 .grid__tile i {
   text-align: center;
   color: #eae5fc;
-  font-size: 1000%;
+  font-size: 200px;
   height: 250px;
   width: 250px;
-  margin-top: 15%;
+  margin-top: 25px;
   border-radius: 20px;
 }
 .grid__tile i:hover {
@@ -149,6 +148,11 @@ section.grid {
 
 @media (max-width: 600px) {
   .grid__tile {
+    width: 100px;
+    height: 100px;
+  }
+  .grid__tile i {
+    font-size: 70px;
     width: 100px;
     height: 100px;
   }
