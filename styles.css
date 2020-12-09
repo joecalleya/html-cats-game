@@ -4,51 +4,73 @@ body {
   font-family: "Do Hyeon", sans-serif;
 }
 
-section.grid {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+.grid__title {
   width: 100%;
-  z-index: -1;
+  justify-content: center;
+  align-content: center;
 }
-section.grid h1 {
-  width: 80%;
-  font-size: 400%;
+.grid__title h1 {
+  width: 100%;
+  font-size: 200%;
   color: #eae5fc;
   text-align: center;
   margin: 20px;
   letter-spacing: 5px;
   border: 5px solid #e3c74f;
   border-radius: 20px;
+  box-shadow: 5px 5px grey;
+  text-shadow: 5px 5px grey;
+}
+
+section.grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  z-index: -1;
 }
 
 .grid__tile {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  position: relative;
+  align-content: center;
   margin: 20px;
   width: 250px;
   height: 250px;
   perspective: 1000px;
-  /* Remove this if you don't want the 3D effect */
   border-radius: 20px;
-  box-shadow: 20px;
-  background-color: #eae5fc;
+  box-shadow: 5px 5px grey;
   border: 5px solid #e3c74f;
 }
+.grid__tile:hover {
+  color: #7e5ded;
+  background-color: #eae5fc;
+}
+.grid__tile i {
+  text-align: center;
+  color: #eae5fc;
+  font-size: 1000%;
+  height: 250px;
+  width: 250px;
+  margin-top: 15%;
+  border-radius: 20px;
+}
+.grid__tile i:hover {
+  color: #7e5ded;
+  background-color: #eae5fc;
+}
 .grid__tile .grid__back__image {
-  width: 100%;
-  height: 100%;
+  width: 250px;
+  height: 250px;
   transform: rotateY(-180deg);
   position: absolute;
   -webkit-backface-visibility: hidden;
   /* Safari */
   backface-visibility: hidden;
-  border-radius: 20px;
-  padding: 5px;
+  border-radius: 15px;
 }
 
 .rotate {
@@ -56,7 +78,6 @@ section.grid h1 {
   transition: transform 0.8s;
   transform-style: preserve-3d;
   border: 5px solid #fc5e79;
-  padding: 5px;
 }
 
 .match {
@@ -64,7 +85,6 @@ section.grid h1 {
   transition: transform 0.8s;
   transform-style: preserve-3d;
   border: 5px solid #55c2b3;
-  padding: 5px;
 }
 
 /* defaut modal display*/
@@ -78,22 +98,15 @@ section.grid h1 {
 
 .modal {
   position: fixed;
-  /* Stay in place */
   z-index: 1;
-  /* Sit on top */
   left: 0;
   top: 0;
   width: 100%;
-  /* Full width */
   height: 200%;
-  /* Full height */
   overflow: auto;
-  /* Enable scroll if needed */
   background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */
 }
 
-/* Modal Content/Box */
 .modal-content {
   background-color: #7e5ded;
   color: #eae5fc;
@@ -101,12 +114,25 @@ section.grid h1 {
   padding: 20px;
   font-size: 28px;
   width: 80%;
-  /* Could be more or less, depending on screen size */
   border-radius: 20px;
   border: 5px solid #e3c74f;
+  text-align: center;
+}
+.modal-content button {
+  border-radius: 20px;
+  border: 5px solid #e3c74f;
+  font-size: 28px;
+  color: #eae5fc;
+  background-color: #7e5ded;
+  font-family: "Do Hyeon", sans-serif;
+  padding: 10px;
+  margin: 10px;
+}
+.modal-content button:hover {
+  color: #7e5ded;
+  background-color: #eae5fc;
 }
 
-/* The Close Button */
 .close {
   color: #aaa;
   float: right;
