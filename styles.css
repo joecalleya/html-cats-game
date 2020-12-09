@@ -6,8 +6,6 @@ body {
 
 .grid__title {
   width: 100%;
-  justify-content: center;
-  align-content: center;
 }
 .grid__title h1 {
   font-size: 200%;
@@ -56,6 +54,7 @@ section.grid {
   width: 250px;
   margin-top: 25px;
   border-radius: 20px;
+  text-shadow: 5px 5px grey;
 }
 .grid__tile i:hover {
   color: #7e5ded;
