@@ -151,6 +151,12 @@ section.grid {
     height: 100px;
   }
   .grid__tile i {
+    margin-top: 15px;
+    font-size: 70px;
+    width: 100px;
+    height: 100px;
+  }
+  .grid__tile .grid__back__image {
     font-size: 70px;
     width: 100px;
     height: 100px;

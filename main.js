@@ -3,7 +3,7 @@ import resetGrid from "./scripts/resetGrid.js"
 import checkMatch from "./scripts/checkMatch.js"
 import renderGame from "./scripts/renderGame.js"
 import modals from "./scripts/modals.js"
-import checkIfCompleted from "./scripts/checkIfCompleted.js"
+import completed from "./scripts/completed.js"
 
 //used to flip tiles
 let flipTarget = '';
@@ -18,9 +18,13 @@ let matchCount = 0;
 let difficultyNumber = 2
 // query for the grid items
 const gridSelect = document.querySelector(".grid");
+let restart = 0;
 
+renderGame(difficultyNumber, gridSelect)
+modals()
 // this is the main function, it will essentially track where you click on the grid using the event. values. 
-// the reason here is that in order get the parent of the clicked element using the event .next sibbling object.
+// the reason here is that in order get the parent of the clicked element using the event .next sibling object.
+
 
 const click_monitor = () => {
     const clickTarget = event
@@ -28,35 +32,44 @@ const click_monitor = () => {
     const idClickResult = clickTarget.path[1].id;
     clickedImageArray.push(imageClickedURL);
     flipTarget = document.querySelector(`#${idClickResult}`);
-    if (idClickResult == 'grid') {
+    console.log("IMGClicked:",imageClickedURL,"clickedID:",idClickResult, "Matches:", matchCount)
+
+    if (idClickResult == 'grid')  // if click outside images then ignore
+    {
         return;
     } else {
         clickedLocationArray.push(flipTarget);
         //every click - rotate
         rotateGrid(flipTarget)
         // second click - check match
-        if (clickedLocationArray.length >= 2) {
-
+        if (clickedLocationArray.length >= 2)  // Second CLick
+            {
             const isLastClickMatching = checkMatch(clickedImageArray, clickedLocationArray)
-            if (isLastClickMatching) {
+            if (isLastClickMatching) 
+            {
                 matchCount++;
             }
-            checkIfCompleted(difficultyNumber, matchCount)
+            if (difficultyNumber == matchCount) // COMPLETED 
+            {
+                matchCount =  0;
+                difficultyNumber ++;
+                completed(difficultyNumber)
+
+                // if (restart = 1) restart();
+            }
             clickedImageArray = [];
-            if (clickedLocationArray.length > 2 && isLastClickMatching == false) {
+            if (clickedLocationArray.length > 2 && isLastClickMatching == false) // NOMATCH 
+            {
                 resetGrid(clickedLocationArray)
                 clickedLocationArray = [];
             }
         }
     }
 }
-renderGame(difficultyNumber, gridSelect)
-
-
 // main event listener on which the whole game runs
-
 gridSelect.addEventListener('click', (event) => {
     click_monitor();
 });
 
-modals()
+
+

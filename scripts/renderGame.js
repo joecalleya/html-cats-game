@@ -1,6 +1,8 @@
 // create the grid box based on the difficulty - difficultyNumber
 const renderGame = (difficultyNumber, gridSelect) => {
 
+    gridSelect.innerHTML = ``;
+
     const createHTML = (iterator, pictureNumber) => {
         gridSelect.innerHTML += `<div class="grid__tile" id="grid__tile__${iterator}">
                                     <i class="fas fa-question"></i>
