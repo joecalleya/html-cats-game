@@ -30,14 +30,14 @@ const click_monitor = () => {
     const clickTarget = event
     const imageClickedURL = clickTarget.target.nextSibling.nextSibling.src;
     const idClickResult = clickTarget.path[1].id;
-    clickedImageArray.push(imageClickedURL);
-    flipTarget = document.querySelector(`#${idClickResult}`);
     console.log("IMGClicked:",imageClickedURL,"clickedID:",idClickResult, "Matches:", matchCount)
 
-    if (idClickResult == 'grid')  // if click outside images then ignore
+    if (idClickResult == 'grid' || !idClickResult)  // if click outside images then ignore
     {
         return;
     } else {
+        clickedImageArray.push(imageClickedURL);
+        flipTarget = document.querySelector(`#${idClickResult}`);
         clickedLocationArray.push(flipTarget);
         //every click - rotate
         rotateGrid(flipTarget)
