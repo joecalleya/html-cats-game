@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
 body {
-  background-color: #7e5ded;
+  background-color: rgb(126, 93, 237);
   font-family: "Do Hyeon", sans-serif;
 }
 
@@ -9,11 +9,11 @@ body {
 }
 .grid__title h1 {
   font-size: 200%;
-  color: #eae5fc;
+  color: rgb(234, 229, 252);
   text-align: center;
   margin: 20px;
   letter-spacing: 5px;
-  border: 5px solid #e3c74f;
+  border: 5px solid rgb(227, 199, 79);
   border-radius: 20px;
   box-shadow: 5px 5px grey;
   text-shadow: 5px 5px grey;
@@ -23,7 +23,7 @@ section.grid {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-items: center;
+  justify-content: center;
   align-items: center;
   width: 100%;
   z-index: -1;
@@ -40,49 +40,49 @@ section.grid {
   perspective: 1000px;
   border-radius: 20px;
   box-shadow: 5px 5px grey;
-  border: 5px solid #e3c74f;
+  border: 5px solid rgb(227, 199, 79);
 }
 .grid__tile:hover {
-  color: #7e5ded;
-  background-color: #eae5fc;
+  color: rgb(126, 93, 237);
+  background-color: rgb(234, 229, 252);
 }
 .grid__tile i {
   text-align: center;
-  color: #eae5fc;
+  color: rgb(234, 229, 252);
   font-size: 200px;
   height: 250px;
   width: 250px;
   margin-top: 25px;
   border-radius: 20px;
   text-shadow: 5px 5px grey;
+  z-index: 0;
 }
 .grid__tile i:hover {
-  color: #7e5ded;
-  background-color: #eae5fc;
+  color: rgb(126, 93, 237);
+  background-color: rgb(234, 229, 252);
 }
 .grid__tile .grid__back__image {
   width: 250px;
   height: 250px;
   transform: rotateY(-180deg);
-  position: absolute;
-  -webkit-backface-visibility: hidden;
-  /* Safari */
+  position: absolute; /* Safari */
   backface-visibility: hidden;
   border-radius: 15px;
+  z-index: 1;
 }
 
 .rotate {
   transform: rotateY(-180deg);
   transition: transform 0.8s;
   transform-style: preserve-3d;
-  border: 5px solid #fc5e79;
+  border: 5px solid rgb(252, 94, 121);
 }
 
 .match {
   transform: rotateY(-180deg);
   transition: transform 0.8s;
   transform-style: preserve-3d;
-  border: 5px solid #55c2b3;
+  border: 5px solid rgb(85, 194, 179);
 }
 
 /* defaut modal display*/
@@ -106,29 +106,29 @@ section.grid {
 }
 
 .modal-content {
-  background-color: #7e5ded;
-  color: #eae5fc;
+  background-color: rgb(126, 93, 237);
+  color: rgb(234, 229, 252);
   margin: 15% auto;
   padding: 20px;
   font-size: 28px;
   width: 80%;
   border-radius: 20px;
-  border: 5px solid #e3c74f;
+  border: 5px solid rgb(227, 199, 79);
   text-align: center;
 }
 .modal-content button {
   border-radius: 20px;
-  border: 5px solid #e3c74f;
+  border: 5px solid rgb(227, 199, 79);
   font-size: 28px;
-  color: #eae5fc;
-  background-color: #7e5ded;
+  color: rgb(234, 229, 252);
+  background-color: rgb(126, 93, 237);
   font-family: "Do Hyeon", sans-serif;
   padding: 10px;
   margin: 10px;
 }
 .modal-content button:hover {
-  color: #7e5ded;
-  background-color: #eae5fc;
+  color: rgb(126, 93, 237);
+  background-color: rgb(234, 229, 252);
 }
 
 .close {

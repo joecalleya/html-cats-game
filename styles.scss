@@ -35,7 +35,7 @@ section.grid {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-items: center; 
+  justify-content: center; 
   align-items: center;
   width: 100%;
   z-index: -1;
@@ -68,6 +68,7 @@ section.grid {
       margin-top:25px;
       border-radius:20px;
       text-shadow: 5px 5px grey;
+      z-index: 0;
 
     &:hover {
       color: $background-colour;
@@ -83,6 +84,7 @@ section.grid {
       -webkit-backface-visibility: hidden; /* Safari */
       backface-visibility: hidden;
       border-radius:15px;
+      z-index: 1;
   }
 }
   .rotate{

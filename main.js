@@ -25,12 +25,9 @@ modals()
 // this is the main function, it will essentially track where you click on the grid using the event. values. 
 // the reason here is that in order get the parent of the clicked element using the event .next sibling object.
 
-
-const click_monitor = () => {
-    const clickTarget = event
-    const imageClickedURL = clickTarget.target.nextSibling.nextSibling.src;
-    const idClickResult = clickTarget.path[1].id;
-    console.log("IMGClicked:",imageClickedURL,"clickedID:",idClickResult, "Matches:", matchCount)
+const click_monitor = (e) => {
+    const imageClickedURL = e.target.nextSibling.nextSibling.src;
+    const idClickResult = e.target.previousSibling.parentElement.id
 
     if (idClickResult == 'grid' || !idClickResult)  // if click outside images then ignore
     {
@@ -67,8 +64,8 @@ const click_monitor = () => {
     }
 }
 // main event listener on which the whole game runs
-gridSelect.addEventListener('click', (event) => {
-    click_monitor();
+gridSelect.addEventListener('click', (e) => {
+    click_monitor(e);
 });
 
 
